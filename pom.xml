@@ -208,9 +208,17 @@
             <exclude>*/jdiff/*.xml</exclude>
             <exclude>.travis.yml</exclude>
             <exclude>licenses/**</exclude>
-            <exclude>thrift-0.7.0/**</exclude>
-            <exclude>thrift-0.7.0.tar.gz</exclude>
+            <exclude>thrift-${cdh.thrift.version}/**</exclude>
+            <exclude>thrift-${cdh.thrift.version}.tar.gz</exclude>
+            <exclude>generated/**</exclude>
           </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <additionalparam>-Xdoclint:none</additionalparam>
         </configuration>
       </plugin>
     </plugins>
@@ -220,23 +228,32 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.2</version>
+      <version>${cdh.slf4j.version}</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-nop</artifactId>
-      <version>1.7.2</version>
+      <version>${cdh.slf4j.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.thrift</groupId>
       <artifactId>libthrift</artifactId>
-      <version>0.7.0</version>
+      <version>${cdh.thrift.version}</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.10</version>
+      <version>${cdh.junit.version}</version>
       <scope>test</scope>
+    </dependency>
+    <!-- Thrift apparently lacks a dependency it should include -->
+    <!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
+    <!-- This is no longer needed with Thrift 0.9.3. -->
+    <!-- TODO: Remove once Thrift 0.9.3 is available in Cauldron. -->
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>${cdh.commons-lang.version}</version>
     </dependency>
   </dependencies>
 </project>

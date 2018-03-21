@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Licensed to the Apache Software Foundation (ASF) under one
 # or more contributor license agreements.  See the NOTICE file
 # distributed with this work for additional information
@@ -18,34 +19,7 @@
 
 set -e
 
-# set up thrift, protoc and Java
-THRIFT_VERSION=0.9.3
-wget "http://mirror.infra.cloudera.com/toolchain/thrift-${THRIFT_VERSION}.tar.gz" -O - | tar xz -C "$WORKSPACE"
-cd "$WORKSPACE/thrift-${THRIFT_VERSION}"
-./configure \
-  --without-cpp \
-  --without-libevent \
-  --without-zlib \
-  --without-qt4 \
-  --without-qt5 \
-  --without-c_glib \
-  --without-csharp \
-  --without-java \
-  --without-erlang \
-  --without-nodejs \
-  --without-lua \
-  --without-python \
-  --without-perl \
-  --without-php \
-  --without-php_extension \
-  --without-ruby \
-  --without-haskell \
-  --without-go \
-  --without-haxe \
-  --without-d
-make
-cd -
-export JAVA_HOME="${JAVA8_HOME}"
-export PATH="$JAVA_HOME/bin:$WORKSPACE/thrift-${THRIFT_VERSION}/compiler/cpp:/opt/toolchain/protobuf-2.5.0/bin:$PATH"
+# invoke docker with an image that has the proper thrift and protoc installed:
+docker run -v "$(pwd):/mnt" -w /mnt docker-registry.infra.cloudera.com/cauldron/ubuntu1604:1505254507 bash -c "adduser --uid $(id -u) --gecos '' --disabled-password me; su me -c '/mnt/cloudera/inside-docker.sh'"
 
-mvn clean test --fail-at-end
+

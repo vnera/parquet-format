@@ -89,6 +89,7 @@
     <shade.prefix>shaded.parquet</shade.prefix>
     <thrift.executable>thrift</thrift.executable>
     <thrift.version>${cdh.thrift.version}</thrift.version>
+    <thrift.exec.version>${cdh.thrift.executable.version}</thrift.exec.version>
   </properties>
 
   <build>
@@ -254,9 +255,9 @@
                   <workingDirectory>${basedir}</workingDirectory>
                   <arguments>
                     <argument>-c</argument>
-                    <argument>${thrift.executable} -version | fgrep 'Thrift version ${thrift.version}' &amp;&amp; exit 0;
+                    <argument>${thrift.executable} -version | fgrep 'Thrift version ${thrift.exec.version}' &amp;&amp; exit 0;
                       echo "=================================================================================";
-                      echo "========== [FATAL] Build is configured to require Thrift version ${thrift.version} ==========";
+                      echo "========== [FATAL] Build is configured to require Thrift version ${thrift.exec.version} ==========";
                       echo -n "========== Currently installed: ";
                       ${thrift.executable} -version;
                       echo "=================================================================================";

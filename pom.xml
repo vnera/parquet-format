@@ -88,7 +88,7 @@
     <maven.compiler.target>1.6</maven.compiler.target>
     <shade.prefix>shaded.parquet</shade.prefix>
     <thrift.executable>thrift</thrift.executable>
-    <thrift.version>0.9.3</thrift.version>
+    <thrift.version>${cdh.thrift.version}</thrift.version>
   </properties>
 
   <build>
@@ -200,6 +200,7 @@
             <exclude>licenses/**</exclude>
             <exclude>thrift-${thrift.version}/**</exclude>
             <exclude>thrift-${thrift.version}.tar.gz</exclude>
+            <exclude>generated/**</exclude>
           </excludes>
         </configuration>
       </plugin>
@@ -210,17 +211,17 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.2</version>
+      <version>${cdh.slf4j.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.thrift</groupId>
       <artifactId>libthrift</artifactId>
-      <version>${thrift.version}</version>
+      <version>${cdh.thrift.version}</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.10</version>
+      <version>${cdh.junit.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

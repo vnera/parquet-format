@@ -1,0 +1,10 @@
+debian/tmp/usr/lib/parquet/parquet-format
+debian/tmp/usr/lib/parquet/parquet-format-javadoc.jar
+debian/tmp/usr/lib/parquet/parquet-format-sources.jar
+debian/tmp/usr/lib/parquet/parquet-format.jar
+debian/tmp/usr/lib/parquet/lib/parquet-format-2.4.0-cdh6.3.2-javadoc.jar
+debian/tmp/usr/lib/parquet/lib/parquet-format-2.4.0-cdh6.3.2-sources.jar
+debian/tmp/usr/lib/parquet/lib/parquet-format-2.4.0-cdh6.3.2.jar
+debian/tmp/usr/lib/hadoop/parquet-format-javadoc.jar
+debian/tmp/usr/lib/hadoop/parquet-format-sources.jar
+debian/tmp/usr/lib/hadoop/parquet-format.jar

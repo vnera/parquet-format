@@ -19,10 +19,11 @@
 
 .PHONY: doc
 
+# daymanc: set absolute path for thrift calls:
 thrift:
 	mkdir -p generated
-	thrift --gen cpp -o generated src/main/thrift/parquet.thrift
-	thrift --gen java -o generated src/main/thrift/parquet.thrift
+	/usr/local/thrift/bin/thrift --gen cpp -o generated src/main/thrift/parquet.thrift
+	/usr/local/thrift/bin/thrift --gen java -o generated src/main/thrift/parquet.thrift
 
 %.html: %.md
 	pandoc -f markdown_github -t html -o $@ $<

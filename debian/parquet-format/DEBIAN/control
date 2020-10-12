@@ -1,0 +1,13 @@
+Package: parquet-format
+Version: 2.4.0+cdh6.3.2-1605554
+Architecture: all
+Maintainer: vRNI, VMware, Inc. <https://www.vmware.com/support>
+Installed-Size: 894
+Depends: hadoop, parquet (>= 1.2.3)
+Section: misc
+Priority: extra
+Homepage: https://parquet.io
+Description: Format definitions for Parquet
+ .
+ .
+ Built by vRNI, VMware, Inc.

@@ -87,7 +87,11 @@
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
     <shade.prefix>shaded.parquet</shade.prefix>
-    <thrift.executable>thrift</thrift.executable>
+
+    <!--<thrift.executable>thrift</thrift.executable> -->
+    <!-- daymanc: use full path for thrift:-->
+    <thrift.executable>/usr/local/thrift/bin/thrift</thrift.executable>
+
     <thrift.version>${cdh.thrift.version}</thrift.version>
     <thrift.exec.version>${cdh.thrift.executable.version}</thrift.exec.version>
   </properties>

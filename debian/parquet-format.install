@@ -1,0 +1,4 @@
+/usr/lib/parquet/parquet-format
+/usr/lib/parquet/*.jar
+/usr/lib/parquet/lib/*.jar
+/usr/lib/hadoop/*.jar
